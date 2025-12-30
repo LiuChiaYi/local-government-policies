@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地方氣候變遷政策 - 桃園市氣候變遷專區</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft JhengHei", sans-serif; 
+            background-color: #fce4e4; 
+            margin: 0; 
+            padding: 40px 20px; 
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+        .container { max-width: 1000px; margin: auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(183, 28, 28, 0.1); }
+        
+        h1 { color: #b71c1c; text-align: center; font-size: 2.2rem; margin-bottom: 10px; font-weight: bold; }
+        .header-underline { width: 80px; height: 5px; background: #e57373; margin: 0 auto 40px; border-radius: 2px; }
+
+        h2 { color: #880e4f; font-size: 1.6rem; border-bottom: 2px solid #fce4e4; padding-bottom: 8px; margin-top: 40px; }
+        .highlight { color: #d32f2f; font-weight: bold; }
+
+        /* 主題二：調適領域摺疊設計 */
+        .domain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin: 20px 0; }
+        .domain-item { background: #fff; border: 1px solid #ffcdd2; border-radius: 12px; overflow: hidden; transition: 0.3s; }
+        .domain-header { 
+            padding: 20px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; 
+            background: #fff; font-weight: bold; color: #b71c1c; 
+        }
+        .domain-header:hover { background: #fff5f5; }
+        .domain-header i.main-icon { margin-right: 15px; color: #e57373; font-size: 1.2rem; width: 25px; text-align: center; }
+        .domain-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: #fffafa; }
+        .domain-inner { padding: 15px 20px 20px 55px; font-size: 0.95rem; border-top: 1px dashed #ffcdd2; }
+        .domain-inner ol { margin: 0; padding-left: 0; list-style-position: outside; }
+        .domain-inner li { margin-bottom: 8px; color: #5d4037; }
+        .arrow { transition: 0.3s; color: #bdc3c7; }
+        .active .arrow { transform: rotate(180deg); color: #b71c1c; }
+
+        /* 主題三：衝擊分析表格 */
+        .impact-table { width: 100%; border-collapse: collapse; margin-top: 20px; border: 1px solid #ffcdd2; }
+        .impact-table th { background: #d32f2f; color: white; padding: 15px; text-align: left; }
+        .impact-table td { padding: 15px; border-bottom: 1px solid #eee; background: #fff; vertical-align: top; }
+        .scenario-tag { display: inline-block; padding: 3px 10px; border-radius: 5px; background: #ffebee; color: #b71c1c; font-weight: bold; font-size: 0.9rem; margin-bottom: 10px; }
+
+        /* 下載區 */
+        .download-section { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 2px dashed #ffcdd2; }
+        .btn-download { 
+            display: inline-block; padding: 15px 40px; background: #d32f2f; color: white !important; 
+            text-decoration: none; border-radius: 35px; font-weight: bold; transition: 0.3s; 
+        }
+        .btn-download:hover { background: #b71c1c; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(183, 28, 28, 0.3); }
+
+        @media (max-width: 600px) { .container { padding: 20px; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>地方氣候變遷政策</h1>
+    <div class="header-underline"></div>
+
+    <section>
+        <h2>主題一、地方氣候變遷政策架構</h2>
+        <p>為因應全球氣候變遷，減緩溫室氣體排放，以公正轉型建構具氣候變遷調適之生活環境，落實城市永續淨零目標，桃園市以「桃園市推動淨零城市自治條例」為基礎，結合產業、城市、交通、教育及氣候變遷調適等面向，為桃園淨零轉型奠定堅實的基礎。</p>
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="policy_framework.png" alt="政策架構圖" style="max-width: 100%; border-radius: 10px; border: 1px solid #ffcdd2; cursor: pointer;" onclick="openModal(this)">
+            <p style="font-size: 0.85rem; color: #7f8c8d;">圖：桃園市氣候變遷治理架構</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>主題二、氣候變遷各調適領域策略要點</h2>
+        <p>依據「桃園市氣候變遷調適執行方案」，劃分 8 大領域，點擊下方各項可查看具體策略細節：</p>
+        
+        <div class="domain-grid">
+            <div class="domain-item">
+                <div class="domain-header" onclick="toggleDomain(this)">
+                    <div><i class="fas fa-info-circle main-icon"></i> 能力建構領域</div>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="domain-content">
+                    <div class="domain-inner">
+                        <ol>
+                            <li>國土監測與災害預警資訊系統整合，強化因應氣候變遷衝擊能力</li>
+                            <li>推動衝擊與危險地區資訊公開、宣導、預警、防災避災教育與演習</li>
+                            <li>強化建築強度，提升建築安全</li>
+                            <li>增加氣候變遷調適永續發展人才</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-item">
+                <div class="domain-header" onclick="toggleDomain(this)">
+                    <div><i class="fas fa-tint main-icon"></i> 水資源領域</div>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="domain-content">
+                    <div class="domain-inner">
+                        <ol>
+                            <li>重視水環境保護工作</li>
+                            <li>強化乾旱應對能力</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-item">
+                <div class="domain-header" onclick="toggleDomain(this)">
+                    <div><i class="fas fa-map-marked-alt main-icon"></i> 土地利用領域</div>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="domain-content">
+                    <div class="domain-inner">
+                        <ol>
+                            <li>建立以調適為目的之土地使用管理機制</li>
+                            <li>提升都市地區之土地防洪管理效能與調適能力</li>
+                            <li>檢討既有空間規劃在調適氣候變遷之缺失與不足</li>
+                            <li>推動綜合流域治理，降低氣候風險</li>
+                            <li>提升排水設施之功能 (增加都市排水性能)</li>
+                            <li>強化防洪能力</li>
+                            <li>增加桃園綠化面積</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-item">
+                <div class="domain-header" onclick="toggleDomain(this)">
+                    <div><i class="fas fa-bolt main-icon"></i> 能源供給及產業領域</div>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="domain-content">
+                    <div class="domain-inner">
+                        <ol>
+                            <li>落實淨零排放目標</li>
+                            <li>增加用電彈性</li>
+                            <li>強化資源循環，減少資源使用</li>
+                            <li>減少能源耗損</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-item">
+                <div class="domain-header" onclick="toggleDomain(this)">
+                    <div><i class="fas fa-seedling main-icon"></i> 農業與生物多樣性領域</div>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="domain-content">
+                    <div class="domain-inner">
+                        <ol>
+                            <li>建構糧食安全體系</li>
+                            <li>建立永續優質之林業經營調適模式，推動綠色造林</li>
+                            <li>減緩人為擾動造成生物多樣性流失</li>
+                            <li>強化農業對抗氣候變遷能力</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-item">
+                <div class="domain-header" onclick="toggleDomain(this)">
+                    <div><i class="fas fa-heartbeat main-icon"></i> 健康領域</div>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="domain-content">
+                    <div class="domain-inner">
+                        <ol>
+                            <li>增進環境與健康相關部分之績效與分工</li>
+                            <li>強化氣候變遷教育與災後防疫知能</li>
+                            <li>減少災後疫情產生</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-item">
+                <div class="domain-header" onclick="toggleDomain(this)">
+                    <div><i class="fas fa-tools main-icon"></i> 維生基礎設施領域</div>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="domain-content">
+                    <div class="domain-inner">
+                        <ol>
+                            <li>落實維生基礎設施維修養護，提升調適能力</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="domain-item">
+                <div class="domain-header" onclick="toggleDomain(this)">
+                    <div><i class="fas fa-anchor main-icon"></i> 海岸及海洋領域</div>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div class="domain-content">
+                    <div class="domain-inner">
+                        <ol>
+                            <li>保護復育海岸生物棲地與濕地</li>
+                            <li>建置海洋及海岸監測調查資料庫</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>主題三、衝擊分析案例：能源供給及產業</h2>
+        <div class="impact-table">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <th style="width: 30%;">情境 / 關鍵指標</th>
+                    <th style="width: 35%;">潛在衝擊</th>
+                    <th style="width: 35%;">既有調適計畫</th>
+                </tr>
+                <tr>
+                    <td><span class="scenario-tag">溫度上升 (熱浪)</span><br>• 關鍵指標：溫度結果、人口密度</td>
+                    <td>住宅與商用部門因溫度增加而增加空調時數，造成用電上升。溫度上升造成發電效率下降，工業部門用電需求上升。</td>
+                    <td>1. 公用房舍設置太陽能 (經發局)<br>2. 推廣智慧儲能應用 (經發局)<br>3. 工廠低碳化轉型 (經發局)</td>
+                </tr>
+                <tr>
+                    <td><span class="scenario-tag">極端降雨 (降水)</span><br>• 關鍵指標：TCCIP淹水風險、日降雨量600mm</td>
+                    <td>強降雨造成工業區淹水，導致停工、設備受損。道路中斷造成原物料短缺，影響產線運作，造成經濟損失。</td>
+                    <td>1. 智慧防災水情系統 (水務局)<br>2. 智慧地下水管理 (水務局)<br>3. 提升防救災應變能力 (消防局)</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <div class="download-section">
+        <p>若需參考更詳細之調適策略與科學分析，請點擊下方下載完整報告：</p>
+        <a href="pdfs/桃園市氣候變遷調適執行方案.pdf" target="_blank" class="btn-download">
+            <i class="fas fa-file-pdf"></i> 下載《桃園市氣候變遷調適執行方案》完整手冊
+        </a>
+        <p style="font-size: 0.9rem; color: #7f8c8d; margin-top: 20px;">資料來源：桃園市政府「桃園市氣候變遷調適執行方案」。</p>
+    </div>
+</div>
+
+<script>
+    function toggleDomain(header) {
+        header.classList.toggle('active');
+        var content = header.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    }
+</script>
+
+</body>
+</html>
